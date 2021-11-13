@@ -1,4 +1,3 @@
-import 'package:demo_lang/widget/language_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -15,9 +14,6 @@ class _LocalAppPageState extends State<LocalizationAppPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("MultiLang Demo"),
-          actions: [
-            LanguagePickerWidget(),
-          ],
         ),
         body: Center(
           child: Column(

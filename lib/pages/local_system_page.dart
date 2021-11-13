@@ -1,7 +1,8 @@
+import 'package:demo_lang/widget/language_picker.dart';
 import 'package:flutter/material.dart';
 
 class LocalSystemPage extends StatefulWidget {
-  LocalSystemPage({Key? key}) : super(key: key);
+  const LocalSystemPage({Key? key}) : super(key: key);
 
   @override
   _LocalSystemPageState createState() => _LocalSystemPageState();
@@ -10,6 +11,15 @@ class LocalSystemPage extends StatefulWidget {
 class _LocalSystemPageState extends State<LocalSystemPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        actions: [
+          const LanguagePickerWidget(),
+          const SizedBox(width: 12),
+        ],
+      ),
+    );
   }
 }

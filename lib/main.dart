@@ -1,9 +1,12 @@
+import 'package:demo_lang/l10n/l10n.dart';
 import 'package:demo_lang/pages/local_app_page.dart';
 import 'package:demo_lang/pages/local_system_page.dart';
+import 'package:demo_lang/provider/local_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,32 +21,23 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-
-      //  ChangeNotifierProvider(create: (context)=>  LocaleProvider(),
-      // builder: (context , build){
-      //    final provider = Provider.of<LocaleProvider>(context);
-
-      const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: MainPage(),
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-
-        //  localizationsDelegates: [
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalWidgetsLocalizations.delegate,
-        //   GlobalCupertinoLocalizations.delegate,
-        // ],
-        // locale: provider.locale,
-        //           supportedLocales: L10n.all,
-        //           localizationsDelegates: [
-        //             AppLocalizations.delegate,
-        //             GlobalMaterialLocalizations.delegate,
-        //             GlobalCupertinoLocalizations.delegate,
-        //             GlobalWidgetsLocalizations.delegate,
-        //           ],
-      );
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+      create: (context) => LocalProvider(),
+      builder: (context, build) {
+        final provider = Provider.of<LocalProvider>(context);
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          locale: provider.locale,
+          supportedLocales: L10n.all,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          home: const MainPage(),
+        );
+      });
 }
 
 class MainPage extends StatefulWidget {
@@ -59,7 +53,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      LocalSystemPage(),
+      const LocalSystemPage(),
       const LocalizationAppPage(),
     ];
     return Scaffold(
@@ -83,11 +77,11 @@ class _MainPageState extends State<MainPage> {
             color: Colors.white,
             size: 28,
           ),
-          //  label: 'Localization Apps ',
+          label: 'Localization Apps ',
         ),
         const BottomNavigationBarItem(
           icon: Icon(Icons.language_outlined, size: 28),
-          //  label: 'Localization System ',
+          label: 'Localization System ',
         ),
       ],
     );
