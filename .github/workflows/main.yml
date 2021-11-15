@@ -39,5 +39,5 @@ jobs:
           artifacts: "build/app/outputs/apk/debug/*"
           name: localization.v1.0.${{ github.run_number }}
           tag: localization.v1.0.${{ github.run_number }}
-          token: ${{ secrets.LOCALIZATION }}
+          token: ${{ secrets.localization_token}}
 
