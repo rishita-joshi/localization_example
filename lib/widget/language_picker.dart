@@ -9,7 +9,8 @@ class LanguagePickerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<LocalProvider>(context);
-    final locale = provider.locale;
+    final locale = provider.locale ?? const Locale('en');
+
     return DropdownButtonHideUnderline(
       child: DropdownButton(
         value: locale,
