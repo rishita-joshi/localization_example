@@ -42,7 +42,7 @@ class _LocalSystemPageState extends State<LocalSystemPage> {
             ),
             const SizedBox(height: 8),
             Text(
-              AppLocalizations.of(context)!.helloWorld,
+              AppLocalizations.of(context)!.hello("Rishita"),
               style: const TextStyle(fontSize: 36),
             ),
           ],
