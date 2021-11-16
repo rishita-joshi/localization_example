@@ -45,6 +45,10 @@ class _LocalSystemPageState extends State<LocalSystemPage> {
               AppLocalizations.of(context)!.hello("Rishita 💫"),
               style: const TextStyle(fontSize: 36),
             ),
+            Text(
+              AppLocalizations.of(context)!.lastnamemethod("Joshi 💫"),
+              style: const TextStyle(fontSize: 36),
+            ),
           ],
         ),
       ),

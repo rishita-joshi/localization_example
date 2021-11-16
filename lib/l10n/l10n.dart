@@ -4,7 +4,10 @@ class L10n {
   static final all = [
     const Locale('en'),
     const Locale('hi'),
+    const Locale('fr'),
     const Locale('de'),
+    const Locale('es'),
+    const Locale('ar'),
   ];
 
   static String getFlag(String code) {
@@ -13,6 +16,13 @@ class L10n {
         return '🇮🇳';
       case 'de':
         return '🇩🇪';
+      case 'fr':
+        return 'FR';
+      case 'es':
+        return 'ES';
+      case 'ar':
+        return 'BH';
+
       case 'en':
       default:
         return '🇺🇸';

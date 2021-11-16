@@ -15,5 +15,14 @@
            "type": "String"
          }
       }
-    }
+    },
+    "lastnamemethod": "my last name is : {lastname}",
+   "@lastnamemethod" : {
+   "placeholders": {
+         "lastname": {
+           "type": "String"
+         }
 }
+}
+}
+
